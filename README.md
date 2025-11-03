@@ -72,8 +72,8 @@
     Select a date to view journal, or create a new journal for today:
 	> 1
 
-•	对于显示的任何过去日期，用户可以选择查看在该特定日期编写的日记条目。
-•	对于当前日期，提供以下选项：
+对于显示的任何过去日期，用户可以选择查看在该特定日期编写的日记条目。
+对于当前日期，提供以下选项：
 1.	如果当前日期尚未记录日记条目，系统将提示用户“创建日记”。
 2.	一旦创建了日记条目，用户便可以选择“查看日记”或“编辑日记”。
 
@@ -195,27 +195,27 @@
 ### 版本控制
 我们鼓励你在与团队协作完成此项目时利用 Git 版本控制和 GitHub 平台。这也有助于跟踪每个团队成员在此项目中的贡献，并避免“搭便车者”。
 你可以在以下链接中阅读有关 Git 和 GitHub 的更多信息：
-•	[什么是 Git？](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F "什么是 Git？")
-•	[GitHub 入门](https://docs.github.com/en/get-started "GitHub 入门")
-•	[在 GitHub 上创建Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request "在 GitHub 上创建Pull Request")
-•	[在 GitHub 上解决合并冲突](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github "在 GitHub 上解决合并冲突")
+	[什么是 Git？](https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F "什么是 Git？")
+	[GitHub 入门](https://docs.github.com/en/get-started "GitHub 入门")
+	[在 GitHub 上创建Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request "在 GitHub 上创建Pull Request")
+	[在 GitHub 上解决合并冲突](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github "在 GitHub 上解决合并冲突")
 ### 相对路径
 由于此作业涉及许多文件 I/O 操作，开发人员倾向于在代码中使用其本地绝对文件路径。以下是绝对路径和相对路径之间的示例差异：
-•	绝对路径： `C:\Users\Documents\WIX1002\Assignment\SampleInput.txt`
-•	相对路径： `./SampleInput.txt` （假设项目根目录 ~ 位于绝对路径中所示的 \Assignment\ 文件夹）
+	绝对路径： `C:\Users\Documents\WIX1002\Assignment\SampleInput.txt`
+	相对路径： `./SampleInput.txt` （假设项目根目录 ~ 位于绝对路径中所示的 \Assignment\ 文件夹）
 我们强烈建议你不要使用绝对路径，而是使用相对路径，因为你电脑中的文件路径不一定与你其他项目协作者的相同，但项目中的文件层次结构对于所有项目协作者来说应该是一致的。
  
 ## 联系指导
 如果你对作业有任何疑问或需要澄清，请通过以下任一方式联系我，Lim Jun Yi：
-•	WhatsApp 我：`+60123681620`
-•	给我发电子邮件：`22004811@siswa.um.edu.my`
+1.	WhatsApp 我：`+60123681620`
+2.	给我发电子邮件：`22004811@siswa.um.edu.my`
 我会尽我所能尽快回答你的问题。希望你喜欢这个作业！
 
 ## 附录
 我已经在[这个 GitHub 仓库](https://github.com/LimJY03/SmartJournal "这个 GitHub 仓库")中创建了 API 调用所需的必要文件。 在该仓库中，你应该会看到 2 个 Java 文件和 1 个 `.gitignore` 文件：
-•	`API.java`: 包含 API 调用函数和示例用法的主类
-•	`EnvLoader.java`: 用于从 `.env` 文件读取敏感信息的自定义类
-•	`.gitignore`: 防止 `.env` 中的敏感信息被泄露
+1.	`API.java`: 包含 API 调用函数和示例用法的主类
+2.	`EnvLoader.java`: 用于从 `.env` 文件读取敏感信息的自定义类
+3.	`.gitignore`: 防止 `.env` 中的敏感信息被泄露
 确保将这 3 个文件复制到你的项目文件夹中。
 
 ## 获取用于 Hugging Face 模型 API 调用的访问令牌
