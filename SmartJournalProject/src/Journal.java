@@ -82,6 +82,7 @@ public class Journal {
                 outputStream.println("Weather: ");
                 outputStream.println("Mood: ");
                 outputStream.println(entryText);
+                clearScreen();
                 System.out.println("Journal saved successfully!");
                 isTodayNoJournal = false;
                 inputStream.close();
@@ -105,6 +106,7 @@ public class Journal {
                         System.out.println(tempLine);
                         System.out.print("\nPress Enter to go back.\n> ");
                         input.nextLine();
+                        clearScreen();
                         break;
                     case "2":
                         System.out.println("\nEdit your journal entry for " + date + ":");
@@ -112,8 +114,10 @@ public class Journal {
                         editJournal(email);
                         break;
                     case "3":
+                        clearScreen();
                         break;
                     default:
+                        clearScreen();
                         System.out.println("\nInvaild input.");
                         journalPage(journalDateNum, email);
                         break;
@@ -127,6 +131,7 @@ public class Journal {
                 System.out.println(tempLine);
                 System.out.print("\nPress Enter to go back.\n> ");
                 input.nextLine();
+                clearScreen();
             }
         } 
         catch (Exception e) {
@@ -165,6 +170,7 @@ public class Journal {
             while (inputStream.hasNextLine()) { 
                 outputStream.println(inputStream.nextLine());
             }
+            clearScreen();
             System.out.println("Journal saved successfully!");
             } catch (Exception e) {
             System.out.println("Problem with file!!");
@@ -177,5 +183,10 @@ public class Journal {
             return true;
         }
         else return false;
+    }
+
+    private static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }

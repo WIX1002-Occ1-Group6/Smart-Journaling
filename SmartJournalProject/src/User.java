@@ -21,13 +21,15 @@ public class User {
             email = input.nextLine();
 
             if (!email.contains("@")) {
-                System.out.println("Invaild input.");
+                clearScreen();
+                System.out.println("Invaild email.");
                 return false;
             }
             // Check if already registered
             while (inputStream.hasNextLine()) {
                 String currentLine = inputStream.nextLine();
                 if (currentLine.equals(email)) {
+                    clearScreen();
                     System.out.println("You have already registered. Please use log in.");
                     return false;
                 }
@@ -53,6 +55,7 @@ public class User {
             System.out.println("Problem with file!!"); 
             return false;
         }
+        clearScreen();
         System.out.println("You have successfully registered!");
         return true;
     }
@@ -73,6 +76,7 @@ public class User {
                         // Get displayName and check password
                         displayName = inputStream.nextLine();
                         if (password.equals(inputStream.nextLine())) {
+                            clearScreen();
                             System.out.println("Login successful!");
                             return true;
                         }
@@ -84,6 +88,7 @@ public class User {
             System.out.println("File was not found");
             return false;
         }
+        clearScreen();
         System.out.println("Email or password incorrect!");
         return false;
     }
@@ -102,5 +107,10 @@ public class User {
             return true;
         }
         else return false;
+    }
+
+    private static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }

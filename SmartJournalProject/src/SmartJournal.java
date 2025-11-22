@@ -11,9 +11,6 @@ public class SmartJournal {
     private static final Journal journal = new Journal();
 
     private static void loginPage() {
-        for (int i = 0; i < 50; i++) {
-            System.out.println("\n");
-        }
         System.out.println("\n=== Welcome to Smart Journal ===");
         System.out.println("1. Login");
         System.out.println("2. Register");
@@ -33,6 +30,7 @@ public class SmartJournal {
                 System.out.println("Goodbye!");
                 break;
             default:
+                clearScreen();
                 System.out.println("Invaild input!");
                 loginPage();
         }
@@ -42,15 +40,13 @@ public class SmartJournal {
         // Different welcome displays based on time
         ZonedDateTime fivePM = ZonedDateTime.of(LocalDate.now(timezone), LocalTime.of(17, 0), timezone);
         ZonedDateTime twelveAM = ZonedDateTime.of(LocalDate.now(timezone), LocalTime.of(12, 0), timezone);
-        for (int i = 0; i < 50; i++) {
-            System.out.println("\n");
-        }
+        
         if (now.isAfter(fivePM)) {
-            System.out.println("\nGood Evening! " + user.getDisplayName());
+            System.out.println("\nGood Evening, " + user.getDisplayName() + "!");
         } else if (now.isAfter(twelveAM)) {
-            System.out.println("\nGood Afternoon! " + user.getDisplayName());
+            System.out.println("\nGood Afternoon, " + user.getDisplayName() + "!");
         } else {
-            System.out.println("\nGood Morning! " + user.getDisplayName());
+            System.out.println("\nGood Morning, " + user.getDisplayName() + "!");
         }
 
         System.out.println("\n=== Main Menu ===");
@@ -59,7 +55,9 @@ public class SmartJournal {
         System.out.println("3. Log Out");
         System.out.print("\n> ");
 
-        switch (input.nextLine()) {
+        String choice = input.nextLine();
+        clearScreen();
+        switch (choice) {
             case "1":
                 journalDatePage();
                 welcomePage();
@@ -73,7 +71,6 @@ public class SmartJournal {
                 System.out.println("See you!");
                 break;
             default:
-                System.out.println("Invalid choice. Please try again.");
                 welcomePage();
                 break;
         }
@@ -88,13 +85,20 @@ public class SmartJournal {
             journalDateNum = input.nextInt();
         }
         if (journalDateNum > 0) {
+            clearScreen();
             journal.journalPage(journalDateNum,user.getEmail());
             journalDatePage();
         }
 
     }
 
+    private static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
     public static void main(String[] args) {
+        clearScreen();
         loginPage();
     }
 }
