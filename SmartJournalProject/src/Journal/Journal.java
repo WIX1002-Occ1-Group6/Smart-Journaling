@@ -82,7 +82,7 @@ public class Journal {
                 System.out.println("Processing...");
                 String json = getMood(entryText);
                 String mood = parser(json, "\"label\":");
-                String weather = parser(json, "\"summary_forecast\":");
+                String weather = weatherInEng(parser(json, "\"summary_forecast\":"));
 
                 outputStream.println(today);
                 outputStream.println(weather);
@@ -274,6 +274,27 @@ public class Journal {
             }
         }
         return summaryForecast;
+    }
+
+    private static String weatherInEng(String malay) {
+        String eng = null;
+        switch (malay) {
+            case "Berjerebu" -> eng = "Hazy";
+            case "Tiada hujan" -> eng = "No rain";
+            case "Hujan" -> eng = "Rain";
+            case "Hujan di beberapa tempat" -> eng = "Scattered rain";
+            case "Hujan di satu dua tempat" -> eng = "Isolated Rain";
+            case "Hujan di satu dua tempat di kawasan pantai" -> eng = "Isolated rain over coastal areas";
+            case "Hujan di satu dua tempat di kawasan pedalaman" -> eng = "Isolated rain over inland areas";
+            case "Ribut petir" -> eng = "Thunderstorms";
+            case "Ribut petir di beberapa tempat" -> eng = "Scattered thunderstorms";
+            case "Ribut petir di beberapa tempat di kawasan pedalaman" -> eng = "Scattered thunderstorms over inland areas";
+            case "Ribut petir di satu dua tempat" -> eng = "Isolated thunderstorms";
+            case "Ribut petir di satu dua tempat di kawasan pantai" -> eng = "Isolated thunderstorms over coastal areas";
+            case "Ribut petir di satu dua tempat di kawasan pedalaman" -> eng = "Isolated thunderstorms over inland areas";
+            default -> eng = malay;
+        }
+        return eng;
     }
 
     private static void clearScreen() {
